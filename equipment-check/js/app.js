@@ -449,7 +449,14 @@ function appendChecklistRow(name, details) {
   itemCell.scope = "row";
   itemCell.textContent = name;
   const detailsCell = document.createElement("td");
-  detailsCell.textContent = details;
+  details.forEach(([label, value]) => {
+    const detail = document.createElement("div");
+    detail.className = "print-checklist-detail";
+    const detailLabel = document.createElement("strong");
+    detailLabel.textContent = `${label}: `;
+    detail.append(detailLabel, document.createTextNode(value));
+    detailsCell.append(detail);
+  });
   row.append(itemCell, detailsCell);
   printChecklistItems.append(row);
 }
@@ -468,10 +475,9 @@ function preparePrintReport() {
     const details = item.fields
       .map((field) => {
         const value = values[field.id];
-        return value ? `${field.label}: ${value}` : "";
+        return value ? [field.label, value] : null;
       })
-      .filter(Boolean)
-      .join(" | ");
+      .filter(Boolean);
     appendChecklistRow(item.name, details);
   });
 
@@ -481,10 +487,7 @@ function preparePrintReport() {
       ["Serial number", item.querySelector('[data-field="serial"]').value],
       ["Manufacturer date", item.querySelector('[data-field="date"]').value],
       ["Comments", item.querySelector('[data-field="notes"]').value],
-    ]
-      .filter(([, value]) => value)
-      .map(([label, value]) => `${label}: ${value}`)
-      .join(" | ");
+    ].filter(([, value]) => value);
     appendChecklistRow(name, details);
   });
 }

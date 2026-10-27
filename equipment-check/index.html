@@ -85,14 +85,19 @@
     </form>
 
     <section id="print-report" class="print-report" aria-labelledby="print-report-title" hidden>
-      <h1 id="print-report-title">Equipment Check Audit</h1>
+      <header class="print-report-header">
+        <p class="print-report-eyebrow">QUALITY &amp; SAFETY · AUDIT RECORD</p>
+        <h1 id="print-report-title">Equipment Check</h1>
+        <p class="print-report-subtitle">Completed equipment inspection record</p>
+      </header>
+      <h2 class="print-section-title">Audit details</h2>
       <dl id="print-audit-details" class="print-audit-details"></dl>
-      <h2>Equipment checklist</h2>
+      <h2 class="print-section-title">Equipment checklist</h2>
       <table class="print-checklist">
         <thead>
           <tr>
             <th scope="col">Equipment item</th>
-            <th scope="col">Check details</th>
+            <th scope="col">Recorded details</th>
           </tr>
         </thead>
         <tbody id="print-checklist-items"></tbody>

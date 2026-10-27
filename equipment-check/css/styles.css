@@ -397,13 +397,16 @@
 
 @media print {
   @page {
-    margin: 14mm;
+    size: A4 portrait;
+    margin: 14mm 13mm 16mm;
   }
 
   body {
     color: #111;
     background: #fff;
-    font: 10pt/1.4 Arial, sans-serif;
+    font: 9.5pt/1.4 Arial, sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .equipment-app {
@@ -425,30 +428,60 @@
   }
 
   .print-report h1 {
-    margin: 0 0 18px;
-    color: #111;
-    font-size: 20pt;
+    margin: 0;
+    color: #142432;
+    font-size: 25pt;
+    line-height: 1.1;
   }
 
-  .print-report h2 {
-    margin: 22px 0 8px;
-    color: #111;
-    font-size: 14pt;
+  .print-report-header {
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 3px solid #1674df;
+  }
+
+  .print-report-eyebrow {
+    margin: 0 0 6px;
+    color: #315a7d;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  .print-report-subtitle {
+    margin: 6px 0 0;
+    color: #53616c;
+    font-size: 10pt;
+  }
+
+  .print-report .print-section-title {
+    margin: 18px 0 8px;
+    padding-bottom: 5px;
+    color: #142432;
+    border-bottom: 1px solid #b8c5ce;
+    font-size: 13pt;
   }
 
   .print-audit-details {
     display: grid;
-    grid-template-columns: max-content 1fr;
-    gap: 5px 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 18px;
     margin: 0;
   }
 
   .print-audit-details dt {
+    margin-top: 8px;
+    color: #53616c;
+    font-size: 8pt;
     font-weight: 700;
+    text-transform: uppercase;
   }
 
   .print-audit-details dd {
-    margin: 0;
+    margin: 1px 0 0;
+    color: #111;
+    font-size: 10pt;
+    font-weight: 600;
   }
 
   .print-checklist {
@@ -459,8 +492,8 @@
 
   .print-checklist th,
   .print-checklist td {
-    padding: 6px 8px;
-    border: 1px solid #999;
+    padding: 7px 8px;
+    border: 1px solid #c5cdd3;
     color: #111;
     text-align: left;
     vertical-align: top;
@@ -469,6 +502,18 @@
 
   .print-checklist thead {
     display: table-header-group;
+    background: #eaf1f6;
+  }
+
+  .print-checklist thead th {
+    color: #142432;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .print-checklist tbody tr:nth-child(even) {
+    background: #f5f7f8;
   }
 
   .print-checklist tr {
@@ -477,5 +522,14 @@
 
   .print-checklist th:first-child {
     width: 38%;
+    font-weight: 700;
+  }
+
+  .print-checklist-detail + .print-checklist-detail {
+    margin-top: 3px;
+  }
+
+  .print-checklist-detail strong {
+    color: #344b5c;
   }
 }
