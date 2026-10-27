@@ -151,6 +151,10 @@ footer {
     height: 160px;
   }
 
+  .catalog-image-top {
+    object-position: center 35%;
+  }
+
   .catalog-content {
     min-height: 0;
   }
