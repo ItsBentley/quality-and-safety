@@ -496,9 +496,9 @@ function preparePrintReport() {
 }
 
 function exportPdf() {
-  if (!form.checkValidity()) {
+  if (!form.reportValidity()) {
     missingItemsMessage.hidden = false;
-    missingItemsMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+    form.querySelector(":invalid")?.scrollIntoView({ behavior: "smooth", block: "center" });
     return;
   }
 
