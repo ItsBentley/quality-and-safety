@@ -1,0 +1,268 @@
+.pressure-app {
+  width: min(100% - 32px, 860px);
+  margin: 0 auto;
+  padding: 24px 0 36px;
+}
+
+.app-header {
+  margin: 0 0 24px;
+  text-align: center;
+}
+
+.app-header .eyebrow {
+  margin: 8px 0;
+  color: var(--brand-text);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.app-header h1 {
+  margin: 8px 0;
+  font-size: clamp(1.8rem, 6vw, 2.5rem);
+  line-height: 1.1;
+}
+
+.app-header .intro {
+  max-width: 38rem;
+  margin: 12px auto 0;
+  color: var(--mute);
+}
+
+.panel {
+  padding: clamp(16px, 4vw, 24px);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+
+.panel + .panel {
+  margin-top: 20px;
+}
+
+.panel h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.panel-heading p {
+  margin: 6px 0 0;
+  color: var(--mute);
+}
+
+.wheel-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.wheel-card {
+  min-width: 0;
+  padding: 16px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.wheel-card h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0 0 14px;
+  font-size: 1rem;
+}
+
+.wheel-card h3 > span {
+  color: var(--mute);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.pressure-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.pressure-fields label {
+  min-width: 0;
+  color: var(--mute);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  margin-top: 6px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.input-wrap:focus-within {
+  border-color: var(--brand-text);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-text) 30%, transparent);
+}
+
+.input-wrap input {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 8px 11px 10px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.input-wrap input::placeholder {
+  color: #788791;
+  opacity: 1;
+}
+
+.unit {
+  flex: 0 0 auto;
+  padding-right: 9px;
+  color: var(--mute);
+  font-size: 0.7rem;
+}
+
+.wheel-result {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.wheel-result > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.result-label {
+  color: var(--mute);
+  font-size: 0.75rem;
+}
+
+.wheel-result strong {
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+}
+
+.status {
+  width: fit-content;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.8rem !important;
+}
+
+.status-pending {
+  color: var(--mute);
+  background: #303940;
+}
+
+.status-pass {
+  color: #a9edbb;
+  background: #174e34;
+}
+
+.status-advisory {
+  color: #ffe294;
+  background: #604d16;
+}
+
+.status-fail {
+  color: #ffc0c5;
+  background: #642b32;
+}
+
+.safety-note {
+  margin: 18px 0 0;
+  color: var(--mute);
+  font-size: 0.82rem;
+}
+
+.thresholds h2 {
+  margin-bottom: 14px;
+}
+
+.threshold-list {
+  display: grid;
+  gap: 8px;
+}
+
+.threshold-row {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  padding: 11px 12px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-left: 4px solid;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.threshold-pass {
+  border-left-color: #57c77b;
+}
+
+.threshold-advisory {
+  border-left-color: #f0c84b;
+}
+
+.threshold-fail {
+  border-left-color: #f16f7c;
+}
+
+@media (max-width: 700px) {
+  .wheel-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .pressure-app {
+    width: min(100% - 24px, 860px);
+    padding-top: 16px;
+  }
+
+  .wheel-card {
+    padding: 14px;
+  }
+
+  .pressure-fields {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .input-wrap input {
+    min-height: 44px;
+    padding-left: 12px;
+    font-size: 1.05rem;
+  }
+
+  .threshold-row {
+    grid-template-columns: 1fr;
+    gap: 3px;
+    padding: 10px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

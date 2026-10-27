@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#171c21">
+  <meta name="description" content="Compare measured tyre pressures with the vehicle's door-panel recommendations.">
+  <title>Tyre Pressure Check | Quality &amp; Safety</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="../styles/platform.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <main class="pressure-app">
+    <a class="home-link" href="../">← All tools</a>
+    <header class="app-header">
+      <p class="eyebrow">VEHICLE SAFETY TOOL</p>
+      <h1>Tyre Pressure Check</h1>
+      <p class="intro">Compare each measured tyre pressure with the value shown on the vehicle's door panel.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="check-heading">
+      <div class="panel-heading">
+        <div>
+          <h2 id="check-heading">Pressure readings</h2>
+          <p>Enter both values using the same unit (PSI or bar). Results update automatically.</p>
+        </div>
+      </div>
+
+      <div class="wheel-list">
+        <section class="wheel-card" data-wheel="front-passenger" aria-labelledby="front-passenger-heading">
+          <h3 id="front-passenger-heading">FNS <span>Front passenger</span></h3>
+          <div class="pressure-fields">
+            <label>
+              Door Panel Tyre Pressures
+              <span class="input-wrap">
+                <input data-recommended type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 55" aria-label="Front passenger door panel tyre pressure">
+                <span class="unit">PSI or bar</span>
+              </span>
+            </label>
+            <label>
+              Measured pressure
+              <span class="input-wrap">
+                <input data-measured type="number" min="0" step="any" inputmode="decimal" placeholder="Enter reading" aria-label="Front passenger measured pressure">
+                <span class="unit">same unit</span>
+              </span>
+            </label>
+          </div>
+          <div class="wheel-result" aria-live="polite">
+            <div><span class="result-label">Below recommended</span><strong data-percentage>—</strong></div>
+            <div><span class="result-label">Assessment</span><strong class="status status-pending" data-status>Awaiting readings</strong></div>
+          </div>
+        </section>
+
+        <section class="wheel-card" data-wheel="front-driver" aria-labelledby="front-driver-heading">
+          <h3 id="front-driver-heading">FOS <span>Front driver</span></h3>
+          <div class="pressure-fields">
+            <label>
+              Door Panel Tyre Pressures
+              <span class="input-wrap">
+                <input data-recommended type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 55" aria-label="Front driver door panel tyre pressure">
+                <span class="unit">PSI or bar</span>
+              </span>
+            </label>
+            <label>
+              Measured pressure
+              <span class="input-wrap">
+                <input data-measured type="number" min="0" step="any" inputmode="decimal" placeholder="Enter reading" aria-label="Front driver measured pressure">
+                <span class="unit">same unit</span>
+              </span>
+            </label>
+          </div>
+          <div class="wheel-result" aria-live="polite">
+            <div><span class="result-label">Below recommended</span><strong data-percentage>—</strong></div>
+            <div><span class="result-label">Assessment</span><strong class="status status-pending" data-status>Awaiting readings</strong></div>
+          </div>
+        </section>
+
+        <section class="wheel-card" data-wheel="rear-passenger" aria-labelledby="rear-passenger-heading">
+          <h3 id="rear-passenger-heading">RNS <span>Rear passenger</span></h3>
+          <div class="pressure-fields">
+            <label>
+              Door Panel Tyre Pressures
+              <span class="input-wrap">
+                <input data-recommended type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 64" aria-label="Rear passenger door panel tyre pressure">
+                <span class="unit">PSI or bar</span>
+              </span>
+            </label>
+            <label>
+              Measured pressure
+              <span class="input-wrap">
+                <input data-measured type="number" min="0" step="any" inputmode="decimal" placeholder="Enter reading" aria-label="Rear passenger measured pressure">
+                <span class="unit">same unit</span>
+              </span>
+            </label>
+          </div>
+          <div class="wheel-result" aria-live="polite">
+            <div><span class="result-label">Below recommended</span><strong data-percentage>—</strong></div>
+            <div><span class="result-label">Assessment</span><strong class="status status-pending" data-status>Awaiting readings</strong></div>
+          </div>
+        </section>
+
+        <section class="wheel-card" data-wheel="rear-driver" aria-labelledby="rear-driver-heading">
+          <h3 id="rear-driver-heading">ROS <span>Rear driver</span></h3>
+          <div class="pressure-fields">
+            <label>
+              Door Panel Tyre Pressures
+              <span class="input-wrap">
+                <input data-recommended type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 64" aria-label="Rear driver door panel tyre pressure">
+                <span class="unit">PSI or bar</span>
+              </span>
+            </label>
+            <label>
+              Measured pressure
+              <span class="input-wrap">
+                <input data-measured type="number" min="0" step="any" inputmode="decimal" placeholder="Enter reading" aria-label="Rear driver measured pressure">
+                <span class="unit">same unit</span>
+              </span>
+            </label>
+          </div>
+          <div class="wheel-result" aria-live="polite">
+            <div><span class="result-label">Below recommended</span><strong data-percentage>—</strong></div>
+            <div><span class="result-label">Assessment</span><strong class="status status-pending" data-status>Awaiting readings</strong></div>
+          </div>
+        </section>
+      </div>
+      <p class="safety-note">Use the vehicle manufacturer's recommended pressures and a suitable tyre-pressure gauge. This check assesses pressure below the door-panel value; refer to vehicle guidance if a reading is above the recommendation.</p>
+    </section>
+
+    <section class="panel thresholds" aria-labelledby="thresholds-heading">
+      <h2 id="thresholds-heading">Assessment thresholds</h2>
+      <div class="threshold-list">
+        <div class="threshold-row threshold-pass"><strong>PASS</strong><span>Difference ≤ 10%</span><span>Within tolerance</span></div>
+        <div class="threshold-row threshold-advisory"><strong>ADVISORY</strong><span>Difference &gt; 10% and &lt; 25%</span><span>Check / adjust pressure</span></div>
+        <div class="threshold-row threshold-fail"><strong>FAIL</strong><span>Difference ≥ 25%</span><span>Immediate attention required</span></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

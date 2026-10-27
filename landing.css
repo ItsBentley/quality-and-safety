@@ -61,7 +61,7 @@ h1 {
   gap: 18px;
 }
 
-.workbook-card {
+.catalog-card {
   width: 100%;
   min-width: 0;
   max-width: 100%;
@@ -74,17 +74,17 @@ h1 {
   transition: border-color 150ms ease, transform 150ms ease;
 }
 
-.workbook-card:hover {
+.catalog-card:hover {
   border-color: var(--brand);
   transform: translateY(-2px);
 }
 
-.workbook-card:focus-visible {
+.catalog-card:focus-visible {
   outline: 3px solid var(--brand-text);
   outline-offset: 3px;
 }
 
-.workbook-image {
+.catalog-image {
   display: block;
   width: 100%;
   height: 170px;
@@ -92,7 +92,7 @@ h1 {
   background: #e8f1ed;
 }
 
-.workbook-content {
+.catalog-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -101,26 +101,26 @@ h1 {
   padding: 20px;
 }
 
-.workbook-label {
+.catalog-label {
   color: var(--brand-text);
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.12em;
 }
 
-.workbook-title {
+.catalog-title {
   margin-top: 8px;
   font-size: 1.3rem;
   font-weight: 800;
   line-height: 1.2;
 }
 
-.workbook-description {
+.catalog-description {
   margin-top: 10px;
   color: var(--mute);
 }
 
-.workbook-action {
+.catalog-action {
   margin-top: auto;
   padding-top: 20px;
   color: var(--brand-text);
@@ -143,21 +143,21 @@ footer {
     margin-top: 28px;
   }
 
-  .workbook-image {
+  .catalog-image {
     height: 160px;
   }
 
-  .workbook-content {
+  .catalog-content {
     min-height: 0;
   }
 
-  .workbook-action {
+  .catalog-action {
     margin-top: 4px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .workbook-card {
+  .catalog-card {
     transition: none;
   }
 }
