@@ -21,8 +21,8 @@
     </header>
 
     <form id="equipment-form">
-      <section class="panel" aria-labelledby="check-details-heading">
-        <h2 id="check-details-heading">Check details</h2>
+      <section class="panel" aria-labelledby="audit-details-heading">
+        <h2 id="audit-details-heading">Audit Details</h2>
         <div class="details-grid">
           <label>
             Skillset
@@ -34,8 +34,12 @@
             </select>
           </label>
           <label>
-            Checked by
-            <input id="checked-by" name="checked-by" type="text" autocomplete="name" placeholder="Your name" required>
+            Engineer Name
+            <input id="engineer-name" name="engineer-name" type="text" autocomplete="name" placeholder="Engineer name" required>
+          </label>
+          <label>
+            Engineer Tech Number
+            <input id="engineer-tech-number" name="engineer-tech-number" type="text" inputmode="numeric" required>
           </label>
           <label>
             Check date

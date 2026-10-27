@@ -100,6 +100,7 @@
 }
 
 .details-grid input[type="date"],
+.checklist-fields input[type="date"],
 .item-fields input[type="date"] {
   /* Keep iOS Safari's native date controls inside their grid column. */
   display: block;

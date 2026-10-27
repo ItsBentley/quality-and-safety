@@ -318,7 +318,8 @@ function readDraft() {
 function saveDraft() {
   const draft = {
     skillset: form.elements.skillset.value,
-    checkedBy: form.elements["checked-by"].value,
+    engineerName: form.elements["engineer-name"].value,
+    engineerTechNumber: form.elements["engineer-tech-number"].value,
     checkDate: form.elements["check-date"].value,
     checklist: collectChecklistValues(),
     extraItems: [...extraItems.querySelectorAll(".extra-item")].map((item) => ({
@@ -422,7 +423,8 @@ function restoreDraft() {
     }
   });
   updateChecklistTemplate();
-  form.elements["checked-by"].value = draft.checkedBy || "";
+  form.elements["engineer-name"].value = draft.engineerName || draft.checkedBy || "";
+  form.elements["engineer-tech-number"].value = draft.engineerTechNumber || "";
   form.elements["check-date"].value = draft.checkDate || "";
 
   if (Array.isArray(draft.extraItems)) {
@@ -443,7 +445,8 @@ function exportCsv() {
 
   const rows = [
     ["Skillset", form.elements.skillset.value],
-    ["Checked by", form.elements["checked-by"].value],
+    ["Engineer Name", form.elements["engineer-name"].value],
+    ["Engineer Tech Number", form.elements["engineer-tech-number"].value],
     ["Check date", form.elements["check-date"].value],
     [],
     [
