@@ -525,7 +525,7 @@ window.addEventListener("afterprint", () => {
   printReport.hidden = true;
   document.title = "Equipment Check | Quality & Safety";
 });
-document.querySelector("#clear-draft").addEventListener("click", () => {
+function clearDraft() {
   if (!window.confirm("Clear the saved equipment check draft from this device?")) {
     return;
   }
@@ -541,6 +541,10 @@ document.querySelector("#clear-draft").addEventListener("click", () => {
     console.error("Could not clear the equipment check draft.", error);
     saveStatus.textContent = "Could not clear the saved draft.";
   }
+}
+
+document.querySelectorAll("[data-clear-draft]").forEach((button) => {
+  button.addEventListener("click", clearDraft);
 });
 
 restoreDraft();

@@ -45,6 +45,10 @@
   color: var(--mute);
 }
 
+.clear-draft-top {
+  margin-top: 12px;
+}
+
 .equipment-app form {
   display: grid;
   gap: 16px;
