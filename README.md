@@ -7,7 +7,6 @@ A home page for workplace quality and safety apps, plus tiles that link to Excel
 - `index.html` — the app and workbook landing page
 - `landing.css` — landing page layout and styles
 - `styles/platform.css` — shared dark theme, Quality & Safety accent palette, and base styles
-- `styles/qs-team-mark.svg` — compact gradient Quality & Safety Team logo
 - `<app-name>/` — each app's own page and assets, kept separate from other apps
 - `workbooks/assets/` — thumbnail artwork for workbook tiles
 - `links/assets/` — icons for compact resource links

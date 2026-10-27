@@ -1,4 +1,6 @@
 const wheelCards = document.querySelectorAll("[data-wheel]");
+const PASS_THRESHOLD = 0.10;
+const FAIL_THRESHOLD = 0.25;
 
 function updateWheel(card) {
   const recommendedInput = card.querySelector("[data-recommended]");
@@ -28,14 +30,16 @@ function updateWheel(card) {
     return;
   }
 
+  // This tool reports only pressure below the recommended value.
   const shortfall = Math.max(0, (recommended - measured) / recommended);
   const percentBelow = shortfall * 100;
   percentageOutput.textContent = `${percentBelow.toFixed(1)}%`;
 
-  if (shortfall <= 0.10) {
+  // Keep these cutoffs aligned with the assessment guide in the page markup.
+  if (shortfall <= PASS_THRESHOLD) {
     statusOutput.textContent = "PASS";
     statusOutput.classList.add("status-pass");
-  } else if (shortfall < 0.25) {
+  } else if (shortfall < FAIL_THRESHOLD) {
     statusOutput.textContent = "ADVISORY";
     statusOutput.classList.add("status-advisory");
   } else {

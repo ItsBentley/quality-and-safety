@@ -7,14 +7,12 @@
   --mute: #b0bdc6;
   --line: #3b4852;
   --brand: #73418f;
-  --brand-hover: #be3f79;
   --brand-text: #78baff;
   --brand-orange: #ff9700;
   --brand-red: #ed174b;
   --brand-purple: #a32291;
   --brand-blue: #1674df;
   --brand-gradient: linear-gradient(105deg, #ff9700 0%, #ed174b 36%, #a32291 68%, #1674df 100%);
-  --on-brand: #fff;
 }
 
 * {
@@ -30,30 +28,6 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
-}
-
-main > h1 {
-  margin: 4px 0 16px;
-  font-size: 1.5rem;
-  font-weight: 800;
-  text-align: center;
-}
-
-main > h1::after {
-  content: "";
-  display: block;
-  width: 44px;
-  height: 4px;
-  margin: 8px auto 0;
-  background: var(--brand-gradient);
-  border-radius: 999px;
-}
-
-.brand-mark {
-  display: block;
-  width: min(190px, 55vw);
-  height: auto;
-  margin: 0 auto 16px;
 }
 
 .home-link {
