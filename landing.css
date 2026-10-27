@@ -92,6 +92,10 @@ h1 {
   background: #e8f1ed;
 }
 
+.catalog-image-top {
+  object-position: center -150px;
+}
+
 .catalog-content {
   display: flex;
   flex-direction: column;
