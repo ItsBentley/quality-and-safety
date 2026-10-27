@@ -2,6 +2,32 @@ const STORAGE_KEY = "quality-safety-equipment-check-draft";
 const form = document.querySelector("#equipment-form");
 const extraItems = document.querySelector("#extra-items");
 const saveStatus = document.querySelector("#save-status");
+const skillsetSelect = document.querySelector("#skillset");
+const templateTitle = document.querySelector("#template-title");
+const templateMessage = document.querySelector("#template-message");
+
+// Add each skillset's ordered equipment list here when the templates are provided.
+const CHECKLIST_TEMPLATES = {
+  BB: null,
+  DTV: null,
+  SAT: null,
+};
+
+function updateChecklistTemplate() {
+  const skillset = skillsetSelect.value;
+
+  if (!skillset) {
+    templateTitle.textContent = "Choose a skillset";
+    templateMessage.textContent = "The matching equipment checklist will appear here once a skillset is selected and its item list is added.";
+    return;
+  }
+
+  const template = CHECKLIST_TEMPLATES[skillset];
+  templateTitle.textContent = `${skillset} checklist`;
+  templateMessage.textContent = template
+    ? "This skillset's ordered checklist is ready."
+    : `The ${skillset} item list has not been added yet.`;
+}
 
 // Keep an in-progress check on this device so it can be resumed in the same browser.
 function readDraft() {
@@ -84,7 +110,7 @@ function addExtraItem(item = {}) {
   fields.append(
     createField("Equipment item", "name", "text", item.name),
     createField("Serial number", "serial", "text", item.serial),
-    createField("Item check date", "date", "date", item.date),
+    createField("Manufacturer date", "date", "date", item.date),
   );
 
   const notes = createField("Notes (optional)", "notes", "textarea", item.notes);
@@ -109,7 +135,8 @@ function restoreDraft() {
     return;
   }
 
-  form.elements.skillset.value = draft.skillset || "";
+  form.elements.skillset.value = draft.skillset === "Broadband" ? "BB" : draft.skillset || "";
+  updateChecklistTemplate();
   form.elements["checked-by"].value = draft.checkedBy || "";
   form.elements["check-date"].value = draft.checkDate || "";
 
@@ -130,7 +157,7 @@ function exportCsv() {
     ["Checked by", form.elements["checked-by"].value],
     ["Check date", form.elements["check-date"].value],
     [],
-    ["Item type", "Equipment item", "Serial number", "Item check date", "Notes"],
+    ["Item type", "Equipment item", "Serial number", "Manufacturer date", "Notes"],
   ];
 
   extraItems.querySelectorAll(".extra-item").forEach((item) => {
@@ -158,7 +185,15 @@ function exportCsv() {
   window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-form.addEventListener("input", saveDraft);
+form.addEventListener("input", (event) => {
+  if (event.target !== skillsetSelect) {
+    saveDraft();
+  }
+});
+skillsetSelect.addEventListener("change", () => {
+  updateChecklistTemplate();
+  saveDraft();
+});
 document.querySelector("#add-item").addEventListener("click", () => {
   addExtraItem();
   saveDraft();
@@ -173,6 +208,7 @@ document.querySelector("#clear-draft").addEventListener("click", () => {
     localStorage.removeItem(STORAGE_KEY);
     form.reset();
     extraItems.replaceChildren();
+    updateChecklistTemplate();
     saveStatus.textContent = "Saved draft cleared from this device.";
   } catch (error) {
     console.error("Could not clear the equipment check draft.", error);

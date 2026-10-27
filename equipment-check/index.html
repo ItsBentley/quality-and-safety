@@ -26,7 +26,12 @@
         <div class="details-grid">
           <label>
             Skillset
-            <input id="skillset" name="skillset" type="text" autocomplete="organization-title" placeholder="Enter skillset">
+            <select id="skillset" name="skillset">
+              <option value="">Choose a skillset</option>
+              <option value="BB">BB</option>
+              <option value="DTV">DTV</option>
+              <option value="SAT">SAT</option>
+            </select>
           </label>
           <label>
             Checked by
@@ -47,8 +52,8 @@
           </div>
         </div>
         <div class="template-note">
-          <strong>Checklist template</strong>
-          <span>No fixed items are configured yet. Send me the skillsets and each ordered equipment list, and we can add them here.</span>
+          <strong id="template-title">Choose a skillset</strong>
+          <span id="template-message">The matching equipment checklist will appear here once a skillset is selected and its item list is added.</span>
         </div>
 
         <div class="section-heading extras-heading">

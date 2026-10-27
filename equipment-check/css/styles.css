@@ -85,6 +85,7 @@
 }
 
 .details-grid input,
+.details-grid select,
 .item-fields input,
 .item-fields textarea {
   width: 100%;
@@ -98,12 +99,25 @@
   border-radius: 10px;
 }
 
+.details-grid input[type="date"],
+.item-fields input[type="date"] {
+  /* iOS Safari can size native date controls wider than their grid column. */
+  width: calc(100% - 26px);
+  min-width: 0;
+  height: 22px;
+  min-height: 22px;
+  box-sizing: content-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 .item-fields textarea {
   min-height: 44px;
   resize: vertical;
 }
 
 .details-grid input:focus-visible,
+.details-grid select:focus-visible,
 .item-fields input:focus-visible,
 .item-fields textarea:focus-visible {
   outline: 3px solid var(--brand-text);
