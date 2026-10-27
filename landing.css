@@ -1,0 +1,73 @@
+body {
+  min-height: 100%;
+  line-height: 1.5;
+  padding: env(safe-area-inset-top, 0) 0 env(safe-area-inset-bottom, 0);
+}
+
+main {
+  width: min(100% - 36px, 900px);
+  margin: 0 auto;
+  padding: 64px 0 32px;
+}
+
+.site-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--brand-text);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+h1 {
+  margin: 8px 0;
+  font-size: clamp(2rem, 7vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.intro {
+  max-width: 34rem;
+  margin: 12px auto 0;
+  color: var(--mute);
+  font-size: 1.05rem;
+}
+
+.catalog-section + .catalog-section {
+  margin-top: 36px;
+}
+
+.catalog-section h2 {
+  margin: 0 0 14px;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.empty-state {
+  padding: 24px;
+  color: var(--mute);
+  text-align: center;
+  background: var(--card);
+  border: 1px dashed var(--line);
+  border-radius: 16px;
+}
+
+footer {
+  margin-top: 40px;
+  color: var(--mute);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding-top: 40px;
+  }
+
+  .catalog-section + .catalog-section {
+    margin-top: 28px;
+  }
+}
