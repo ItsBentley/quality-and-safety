@@ -394,3 +394,88 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  body {
+    color: #111;
+    background: #fff;
+    font: 10pt/1.4 Arial, sans-serif;
+  }
+
+  .equipment-app {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .home-link,
+  .app-header,
+  #equipment-form,
+  .app-credit {
+    display: none !important;
+  }
+
+  .print-report,
+  .print-report[hidden] {
+    display: block !important;
+  }
+
+  .print-report h1 {
+    margin: 0 0 18px;
+    color: #111;
+    font-size: 20pt;
+  }
+
+  .print-report h2 {
+    margin: 22px 0 8px;
+    color: #111;
+    font-size: 14pt;
+  }
+
+  .print-audit-details {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 5px 16px;
+    margin: 0;
+  }
+
+  .print-audit-details dt {
+    font-weight: 700;
+  }
+
+  .print-audit-details dd {
+    margin: 0;
+  }
+
+  .print-checklist {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .print-checklist th,
+  .print-checklist td {
+    padding: 6px 8px;
+    border: 1px solid #999;
+    color: #111;
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+  }
+
+  .print-checklist thead {
+    display: table-header-group;
+  }
+
+  .print-checklist tr {
+    break-inside: avoid;
+  }
+
+  .print-checklist th:first-child {
+    width: 38%;
+  }
+}

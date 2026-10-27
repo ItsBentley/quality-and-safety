@@ -74,15 +74,30 @@
       <section class="panel export-panel" aria-labelledby="export-heading">
         <div>
           <h2 id="export-heading">Save a copy</h2>
-          <p class="section-description">Export the entered details as a CSV file that opens in Excel and can be shared in Teams.</p>
+          <p class="section-description">Create a print-ready PDF copy of the audit details and equipment checklist.</p>
         </div>
         <div class="export-actions">
-          <button class="primary-button" type="button" id="export-csv">Export for Excel</button>
+          <button class="primary-button" type="button" id="export-pdf">Export as PDF</button>
           <button class="text-button" type="button" id="clear-draft">Clear saved draft</button>
         </div>
         <p id="save-status" class="save-status" role="status" aria-live="polite">Changes are saved in this browser as you work.</p>
       </section>
     </form>
+
+    <section id="print-report" class="print-report" aria-labelledby="print-report-title" hidden>
+      <h1 id="print-report-title">Equipment Check Audit</h1>
+      <dl id="print-audit-details" class="print-audit-details"></dl>
+      <h2>Equipment checklist</h2>
+      <table class="print-checklist">
+        <thead>
+          <tr>
+            <th scope="col">Equipment item</th>
+            <th scope="col">Check details</th>
+          </tr>
+        </thead>
+        <tbody id="print-checklist-items"></tbody>
+      </table>
+    </section>
 
     <footer class="app-credit">Your draft stays in this browser until you clear it.</footer>
   </main>

@@ -6,6 +6,9 @@ const saveStatus = document.querySelector("#save-status");
 const skillsetSelect = document.querySelector("#skillset");
 const templateTitle = document.querySelector("#template-title");
 const templateMessage = document.querySelector("#template-message");
+const printReport = document.querySelector("#print-report");
+const printAuditDetails = document.querySelector("#print-audit-details");
+const printChecklistItems = document.querySelector("#print-checklist-items");
 let checklistValues = {};
 
 const CONDITION_OPTIONS = ["Fit for Use", "Not Fit for Use", "Not Witnessed"];
@@ -432,84 +435,71 @@ function restoreDraft() {
   }
 }
 
-function csvCell(value) {
-  const text = String(value ?? "");
-  const safeText = /^[\t\r\n ]*[=+\-@]/.test(text) ? `'${text}` : text;
-  return `"${safeText.replaceAll('"', '""')}"`;
+function appendReportDetail(label, value) {
+  const term = document.createElement("dt");
+  term.textContent = label;
+  const description = document.createElement("dd");
+  description.textContent = value;
+  printAuditDetails.append(term, description);
 }
 
-function exportCsv() {
+function appendChecklistRow(name, details) {
+  const row = document.createElement("tr");
+  const itemCell = document.createElement("th");
+  itemCell.scope = "row";
+  itemCell.textContent = name;
+  const detailsCell = document.createElement("td");
+  detailsCell.textContent = details;
+  row.append(itemCell, detailsCell);
+  printChecklistItems.append(row);
+}
+
+function preparePrintReport() {
+  printAuditDetails.replaceChildren();
+  printChecklistItems.replaceChildren();
+
+  appendReportDetail("Skillset", form.elements.skillset.value);
+  appendReportDetail("Engineer Name", form.elements["engineer-name"].value);
+  appendReportDetail("Engineer Tech Number", form.elements["engineer-tech-number"].value);
+  appendReportDetail("Check date", form.elements["check-date"].value);
+
+  CHECKLIST_TEMPLATES[form.elements.skillset.value].forEach((item) => {
+    const values = checklistValues[item.id] || {};
+    const details = item.fields
+      .map((field) => {
+        const value = values[field.id];
+        return value ? `${field.label}: ${value}` : "";
+      })
+      .filter(Boolean)
+      .join(" | ");
+    appendChecklistRow(item.name, details);
+  });
+
+  extraItems.querySelectorAll(".extra-item").forEach((item) => {
+    const name = item.querySelector('[data-field="name"]').value;
+    const details = [
+      ["Serial number", item.querySelector('[data-field="serial"]').value],
+      ["Manufacturer date", item.querySelector('[data-field="date"]').value],
+      ["Comments", item.querySelector('[data-field="notes"]').value],
+    ]
+      .filter(([, value]) => value)
+      .map(([label, value]) => `${label}: ${value}`)
+      .join(" | ");
+    appendChecklistRow(name, details);
+  });
+}
+
+function exportPdf() {
   if (!form.reportValidity()) {
     return;
   }
 
-  const rows = [
-    ["Skillset", form.elements.skillset.value],
-    ["Engineer Name", form.elements["engineer-name"].value],
-    ["Engineer Tech Number", form.elements["engineer-tech-number"].value],
-    ["Check date", form.elements["check-date"].value],
-    [],
-    [
-      "Item type",
-      "Equipment item",
-      "Quantity",
-      "Condition",
-      "Type",
-      "Manufacturer date",
-      "Serial number",
-      "Answer",
-      "Extra item serial number",
-      "Extra item manufacturer date",
-      "Comments",
-    ],
-  ];
-
-  CHECKLIST_TEMPLATES[form.elements.skillset.value].forEach((item) => {
-    const values = checklistValues[item.id] || {};
-    rows.push([
-      "Checklist",
-      item.name,
-      values.quantity || "",
-      values.condition || "",
-      values.type || "",
-      values.manufacturerDate || "",
-      values.serialNumber || "",
-      values.answer || "",
-      "",
-      "",
-      values.comments || "",
-    ]);
-  });
-
-  extraItems.querySelectorAll(".extra-item").forEach((item) => {
-    rows.push([
-      "Extra",
-      item.querySelector('[data-field="name"]').value,
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      item.querySelector('[data-field="serial"]').value,
-      item.querySelector('[data-field="date"]').value,
-      item.querySelector('[data-field="notes"]').value,
-    ]);
-  });
-
-  // The byte-order mark helps Excel recognise UTF-8 text when opening the CSV.
-  const csv = `\uFEFF${rows.map((row) => row.map(csvCell).join(",")).join("\r\n")}`;
-  const file = new Blob([csv], { type: "text/csv;charset=utf-8" });
-  const url = URL.createObjectURL(file);
-  const link = document.createElement("a");
+  collectChecklistValues();
+  preparePrintReport();
+  printReport.hidden = false;
   const date = form.elements["check-date"].value || new Date().toISOString().slice(0, 10);
-
-  link.href = url;
-  link.download = `equipment-check-${date}.csv`;
-  document.body.append(link);
-  link.click();
-  link.remove();
-  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  document.title = `equipment-check-${date}`;
+  window.print();
 }
 
 form.addEventListener("input", saveDraft);
@@ -525,7 +515,11 @@ document.querySelector("#add-item").addEventListener("click", () => {
   addExtraItem();
   saveDraft();
 });
-document.querySelector("#export-csv").addEventListener("click", exportCsv);
+document.querySelector("#export-pdf").addEventListener("click", exportPdf);
+window.addEventListener("afterprint", () => {
+  printReport.hidden = true;
+  document.title = "Equipment Check | Quality & Safety";
+});
 document.querySelector("#clear-draft").addEventListener("click", () => {
   if (!window.confirm("Clear the saved equipment check draft from this device?")) {
     return;
