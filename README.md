@@ -10,6 +10,7 @@ A home page for workplace quality and safety apps, plus tiles that link to Excel
 - `<app-name>/` — each app's own page and assets, kept separate from other apps
 - `workbooks/assets/` — thumbnail artwork for workbook tiles
 - `links/assets/` — icons for compact resource links
+- `equipment-check/` — the equipment check template and Excel-friendly CSV export
 - `tyre-pressure-check/` — the responsive tyre-pressure checking app
 
 The shared theme is loaded before page-specific stylesheets. Keep each app's HTML, CSS, JavaScript, and assets together in its own folder. Add app and workbook tiles to the matching section in `index.html`; workbook tiles can link to files or approved work locations such as SharePoint or OneDrive.

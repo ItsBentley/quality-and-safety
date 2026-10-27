@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#171c21">
+  <meta name="description" content="Record equipment serial numbers and check dates for transfer into an audit.">
+  <title>Equipment Check | Quality &amp; Safety</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="../styles/platform.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <main class="equipment-app">
+    <a class="home-link" href="../">← All tools</a>
+    <header class="app-header">
+      <h1>Equipment Check</h1>
+      <p class="eyebrow">AUDIT PREPARATION TOOL</p>
+      <p class="intro">Record equipment details as you check them, then export a copy to transfer into your audit later.</p>
+    </header>
+
+    <form id="equipment-form">
+      <section class="panel" aria-labelledby="check-details-heading">
+        <h2 id="check-details-heading">Check details</h2>
+        <div class="details-grid">
+          <label>
+            Skillset
+            <input id="skillset" name="skillset" type="text" autocomplete="organization-title" placeholder="Enter skillset">
+          </label>
+          <label>
+            Checked by
+            <input id="checked-by" name="checked-by" type="text" autocomplete="name" placeholder="Your name">
+          </label>
+          <label>
+            Check date
+            <input id="check-date" name="check-date" type="date">
+          </label>
+        </div>
+      </section>
+
+      <section class="panel checklist-panel" aria-labelledby="checklist-heading">
+        <div class="section-heading">
+          <div>
+            <h2 id="checklist-heading">Equipment checklist</h2>
+            <p class="section-description">The required items and their order will be added here for each skillset.</p>
+          </div>
+        </div>
+        <div class="template-note">
+          <strong>Checklist template</strong>
+          <span>No fixed items are configured yet. Send me the skillsets and each ordered equipment list, and we can add them here.</span>
+        </div>
+
+        <div class="section-heading extras-heading">
+          <div>
+            <h3>Extra items</h3>
+            <p class="section-description">Optional items are added after the skillset checklist.</p>
+          </div>
+          <button class="secondary-button" id="add-item" type="button">Add extra item</button>
+        </div>
+        <div id="extra-items" class="extra-items"></div>
+      </section>
+
+      <section class="panel export-panel" aria-labelledby="export-heading">
+        <div>
+          <h2 id="export-heading">Save a copy</h2>
+          <p class="section-description">Export the entered details as a CSV file that opens in Excel and can be shared in Teams.</p>
+        </div>
+        <div class="export-actions">
+          <button class="primary-button" type="button" id="export-csv">Export for Excel</button>
+          <button class="text-button" type="button" id="clear-draft">Clear saved draft</button>
+        </div>
+        <p id="save-status" class="save-status" role="status" aria-live="polite">Changes are saved in this browser as you work.</p>
+      </section>
+    </form>
+
+    <footer class="app-credit">Your draft stays in this browser until you clear it.</footer>
+  </main>
+</body>
+</html>
