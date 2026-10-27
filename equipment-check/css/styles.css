@@ -101,12 +101,12 @@
 
 .details-grid input[type="date"],
 .item-fields input[type="date"] {
-  /* iOS Safari can size native date controls wider than their grid column. */
-  width: calc(100% - 26px);
+  /* Keep iOS Safari's native date controls inside their grid column. */
+  display: block;
+  width: 100%;
+  max-width: 100%;
   min-width: 0;
-  height: 22px;
-  min-height: 22px;
-  box-sizing: content-box;
+  box-sizing: border-box;
   -webkit-appearance: none;
   appearance: none;
 }
