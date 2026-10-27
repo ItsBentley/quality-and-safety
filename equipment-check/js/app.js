@@ -35,6 +35,7 @@ function commentsField() {
   return { id: "comments", label: "Comments", type: "textarea" };
 }
 
+// Keep item IDs stable: saved draft answers are stored by these IDs.
 const BB_ITEMS = [
   { id: "10mm-eyebolt", name: "10mm Eyebolt", fields: [quantityField()] },
   { id: "karabiners", name: "Karabiner(s)", fields: [quantityField()] },
@@ -185,6 +186,7 @@ const SAT_ITEMS = [
   },
 ];
 
+// DTV and SAT inherit the earlier skillset lists in their specified order.
 const CHECKLIST_TEMPLATES = {
   BB: BB_ITEMS,
   DTV: [...BB_ITEMS, ...DTV_ITEMS],
@@ -211,6 +213,7 @@ function updateConditionDependentFields(card) {
   const isNotApplicable = condition.value === "Not Fit for Use" || condition.value === "Not Witnessed";
   const values = checklistValues[card.dataset.itemId] || {};
 
+  // An unfit or unwitnessed item needs no follow-up values.
   card.querySelectorAll("[data-checklist-field]").forEach((field) => {
     if (field === condition) {
       return;
@@ -513,7 +516,7 @@ function exportPdf() {
 
 form.addEventListener("input", (event) => {
   missingItemsMessage.hidden = true;
-  saveDraft(event);
+  saveDraft();
 });
 form.addEventListener("change", (event) => {
   missingItemsMessage.hidden = true;
@@ -543,6 +546,7 @@ function clearDraft() {
     form.reset();
     extraItems.replaceChildren();
     checklistValues = {};
+    missingItemsMessage.hidden = true;
     updateChecklistTemplate();
     saveStatus.textContent = "Saved draft cleared from this device.";
   } catch (error) {
