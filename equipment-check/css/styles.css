@@ -46,7 +46,10 @@
 }
 
 .clear-draft-top {
-  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
 }
 
 .equipment-app form {
