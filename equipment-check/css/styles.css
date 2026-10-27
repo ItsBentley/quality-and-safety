@@ -47,7 +47,7 @@
 
 .clear-draft-top {
   display: block;
-  margin: 16px auto 0;
+  margin: 12px auto 0;
 }
 
 .equipment-app form {
@@ -363,6 +363,10 @@
   .equipment-app {
     width: min(100% - 24px, 860px);
     padding-top: 16px;
+  }
+
+  .clear-draft-top {
+    margin-top: 28px;
   }
 
   .details-grid,
