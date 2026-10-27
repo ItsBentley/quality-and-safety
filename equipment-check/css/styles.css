@@ -397,8 +397,8 @@
 
 @media print {
   @page {
-    size: A4 portrait;
-    margin: 14mm 13mm 16mm;
+    size: A4 landscape;
+    margin: 10mm;
   }
 
   body {
@@ -435,8 +435,8 @@
   }
 
   .print-report-header {
-    margin-bottom: 20px;
-    padding-bottom: 14px;
+    margin-bottom: 12px;
+    padding-bottom: 9px;
     border-bottom: 3px solid #1674df;
   }
 
@@ -455,8 +455,8 @@
   }
 
   .print-report .print-section-title {
-    margin: 18px 0 8px;
-    padding-bottom: 5px;
+    margin: 12px 0 6px;
+    padding-bottom: 4px;
     color: #142432;
     border-bottom: 1px solid #b8c5ce;
     font-size: 13pt;
@@ -464,24 +464,32 @@
 
   .print-audit-details {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 18px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
     margin: 0;
   }
 
-  .print-audit-details dt {
-    margin-top: 8px;
+  .print-audit-card {
+    min-width: 0;
+    padding: 7px 9px;
+    border: 1px solid #c5cdd3;
+    border-radius: 4px;
+    break-inside: avoid;
+  }
+
+  .print-audit-card dt {
     color: #53616c;
-    font-size: 8pt;
+    font-size: 7pt;
     font-weight: 700;
     text-transform: uppercase;
   }
 
-  .print-audit-details dd {
-    margin: 1px 0 0;
+  .print-audit-card dd {
+    margin: 2px 0 0;
     color: #111;
-    font-size: 10pt;
+    font-size: 9pt;
     font-weight: 600;
+    overflow-wrap: anywhere;
   }
 
   .print-checklist {
@@ -492,12 +500,13 @@
 
   .print-checklist th,
   .print-checklist td {
-    padding: 7px 8px;
+    padding: 5px 6px;
     border: 1px solid #c5cdd3;
     color: #111;
     text-align: left;
     vertical-align: top;
     overflow-wrap: anywhere;
+    font-size: 8pt;
   }
 
   .print-checklist thead {
@@ -507,7 +516,7 @@
 
   .print-checklist thead th {
     color: #142432;
-    font-size: 8pt;
+    font-size: 7pt;
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
@@ -520,16 +529,35 @@
     break-inside: avoid;
   }
 
-  .print-checklist th:first-child {
-    width: 38%;
+  .print-col-item {
+    width: 22%;
+  }
+
+  .print-col-quantity {
+    width: 8%;
+  }
+
+  .print-col-condition {
+    width: 13%;
+  }
+
+  .print-col-type {
+    width: 12%;
+  }
+
+  .print-col-date {
+    width: 13%;
+  }
+
+  .print-col-serial {
+    width: 15%;
+  }
+
+  .print-col-comments {
+    width: 17%;
+  }
+
+  .print-checklist tbody th {
     font-weight: 700;
-  }
-
-  .print-checklist-detail + .print-checklist-detail {
-    margin-top: 3px;
-  }
-
-  .print-checklist-detail strong {
-    color: #344b5c;
   }
 }

@@ -94,10 +94,24 @@
       <dl id="print-audit-details" class="print-audit-details"></dl>
       <h2 class="print-section-title">Equipment checklist</h2>
       <table class="print-checklist">
+        <colgroup>
+          <col class="print-col-item">
+          <col class="print-col-quantity">
+          <col class="print-col-condition">
+          <col class="print-col-type">
+          <col class="print-col-date">
+          <col class="print-col-serial">
+          <col class="print-col-comments">
+        </colgroup>
         <thead>
           <tr>
             <th scope="col">Equipment item</th>
-            <th scope="col">Recorded details</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Condition</th>
+            <th scope="col">Type / Answer</th>
+            <th scope="col">Manufacturer date</th>
+            <th scope="col">Serial number</th>
+            <th scope="col">Comments</th>
           </tr>
         </thead>
         <tbody id="print-checklist-items"></tbody>

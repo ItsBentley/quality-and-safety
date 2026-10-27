@@ -436,28 +436,35 @@ function restoreDraft() {
 }
 
 function appendReportDetail(label, value) {
+  const field = document.createElement("div");
+  field.className = "print-audit-card";
   const term = document.createElement("dt");
   term.textContent = label;
   const description = document.createElement("dd");
   description.textContent = value;
-  printAuditDetails.append(term, description);
+  field.append(term, description);
+  printAuditDetails.append(field);
 }
 
-function appendChecklistRow(name, details) {
+function appendChecklistRow(name, details = {}) {
   const row = document.createElement("tr");
   const itemCell = document.createElement("th");
   itemCell.scope = "row";
   itemCell.textContent = name;
-  const detailsCell = document.createElement("td");
-  details.forEach(([label, value]) => {
-    const detail = document.createElement("div");
-    detail.className = "print-checklist-detail";
-    const detailLabel = document.createElement("strong");
-    detailLabel.textContent = `${label}: `;
-    detail.append(detailLabel, document.createTextNode(value));
-    detailsCell.append(detail);
+  const values = [
+    details.quantity,
+    details.condition,
+    details.type || details.answer,
+    details.manufacturerDate,
+    details.serialNumber,
+    details.comments,
+  ];
+  row.append(itemCell);
+  values.forEach((value) => {
+    const cell = document.createElement("td");
+    cell.textContent = value || "";
+    row.append(cell);
   });
-  row.append(itemCell, detailsCell);
   printChecklistItems.append(row);
 }
 
@@ -472,23 +479,16 @@ function preparePrintReport() {
 
   CHECKLIST_TEMPLATES[form.elements.skillset.value].forEach((item) => {
     const values = checklistValues[item.id] || {};
-    const details = item.fields
-      .map((field) => {
-        const value = values[field.id];
-        return value ? [field.label, value] : null;
-      })
-      .filter(Boolean);
-    appendChecklistRow(item.name, details);
+    appendChecklistRow(item.name, values);
   });
 
   extraItems.querySelectorAll(".extra-item").forEach((item) => {
     const name = item.querySelector('[data-field="name"]').value;
-    const details = [
-      ["Serial number", item.querySelector('[data-field="serial"]').value],
-      ["Manufacturer date", item.querySelector('[data-field="date"]').value],
-      ["Comments", item.querySelector('[data-field="notes"]').value],
-    ].filter(([, value]) => value);
-    appendChecklistRow(name, details);
+    appendChecklistRow(name, {
+      serialNumber: item.querySelector('[data-field="serial"]').value,
+      manufacturerDate: item.querySelector('[data-field="date"]').value,
+      comments: item.querySelector('[data-field="notes"]').value,
+    });
   });
 }
 
