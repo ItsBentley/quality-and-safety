@@ -6,6 +6,7 @@ const saveStatus = document.querySelector("#save-status");
 const skillsetSelect = document.querySelector("#skillset");
 const templateTitle = document.querySelector("#template-title");
 const templateMessage = document.querySelector("#template-message");
+const missingItemsMessage = document.querySelector("#missing-items-message");
 const printReport = document.querySelector("#print-report");
 const printAuditDetails = document.querySelector("#print-audit-details");
 const printChecklistItems = document.querySelector("#print-checklist-items");
@@ -495,10 +496,13 @@ function preparePrintReport() {
 }
 
 function exportPdf() {
-  if (!form.reportValidity()) {
+  if (!form.checkValidity()) {
+    missingItemsMessage.hidden = false;
+    missingItemsMessage.scrollIntoView({ behavior: "smooth", block: "center" });
     return;
   }
 
+  missingItemsMessage.hidden = true;
   collectChecklistValues();
   preparePrintReport();
   printReport.hidden = false;
@@ -507,8 +511,12 @@ function exportPdf() {
   window.print();
 }
 
-form.addEventListener("input", saveDraft);
+form.addEventListener("input", (event) => {
+  missingItemsMessage.hidden = true;
+  saveDraft(event);
+});
 form.addEventListener("change", (event) => {
+  missingItemsMessage.hidden = true;
   if (event.target === skillsetSelect) {
     updateChecklistTemplate();
   } else if (event.target.matches('[data-checklist-field="condition"]')) {
