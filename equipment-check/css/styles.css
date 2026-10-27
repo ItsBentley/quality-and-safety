@@ -207,6 +207,16 @@
   border-radius: 10px;
 }
 
+.details-grid input,
+.details-grid select,
+.item-fields input,
+.item-fields textarea,
+.checklist-fields input,
+.checklist-fields select,
+.checklist-fields textarea {
+  font-size: 16px;
+}
+
 .checklist-fields textarea {
   resize: vertical;
 }
