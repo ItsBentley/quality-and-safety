@@ -26,7 +26,7 @@
         <div class="details-grid">
           <label>
             Skillset
-            <select id="skillset" name="skillset">
+            <select id="skillset" name="skillset" required>
               <option value="">Choose a skillset</option>
               <option value="BB">BB</option>
               <option value="DTV">DTV</option>
@@ -35,11 +35,11 @@
           </label>
           <label>
             Checked by
-            <input id="checked-by" name="checked-by" type="text" autocomplete="name" placeholder="Your name">
+            <input id="checked-by" name="checked-by" type="text" autocomplete="name" placeholder="Your name" required>
           </label>
           <label>
             Check date
-            <input id="check-date" name="check-date" type="date">
+            <input id="check-date" name="check-date" type="date" required>
           </label>
         </div>
       </section>
@@ -48,18 +48,19 @@
         <div class="section-heading">
           <div>
             <h2 id="checklist-heading">Equipment checklist</h2>
-            <p class="section-description">The required items and their order will be added here for each skillset.</p>
+            <p class="section-description">Complete each item in order. DTV includes the BB checklist, and SAT includes both BB and DTV.</p>
           </div>
         </div>
         <div class="template-note">
           <strong id="template-title">Choose a skillset</strong>
-          <span id="template-message">The matching equipment checklist will appear here once a skillset is selected and its item list is added.</span>
+          <span id="template-message">Choose BB, DTV, or SAT to show the matching ordered checklist.</span>
         </div>
+        <div id="checklist-items" class="checklist-items"></div>
 
         <div class="section-heading extras-heading">
           <div>
             <h3>Extra items</h3>
-            <p class="section-description">Optional items are added after the skillset checklist.</p>
+            <p class="section-description">Add any additional items after the skillset checklist.</p>
           </div>
           <button class="secondary-button" id="add-item" type="button">Add extra item</button>
         </div>

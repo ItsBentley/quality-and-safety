@@ -1,0 +1,66 @@
+BB — base items
+1. 10mm Eyebolt | Quantity: numeric
+2. Karabiner(s) | Quantity: numeric
+3. Ladder Mats | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+4. Floodlight | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+5. Floodlight Type | Type: Draper, Peli, MS14
+6. Over Ear Protection | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+7. In Ear Protection | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+8. Eye Protection Goggles | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+9. Eye Protection Shield/Safety Specs | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+10. Knee Pads | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+11. High Visibility Vest | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+12. Dust Mask | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+13. Dusk Mask Number Available On Van | Quantity: numeric
+14. Drill Harness and Auxiliary Handle | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+15. Wire and Pipe Detector | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+16. Spare Batteries 9v and AA (If new Bosch detector present) | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+17. First Aid Kit | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+18. Combination Ladder | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+19. Hop Up | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+20. Safety Boots | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+21. Harness | Condition: Fit for Use, Not Fit for Use, Not Witnessed | Manufacturer date: Yes/No | Serial number: Yes/No
+22. Hard Hat | Condition: Fit for Use, Not Fit for Use, Not Witnessed | Manufacturer date: Yes/No | Serial number: Yes/No
+23. Does engineer have all high-value kit scanned to their inventory? | Checkbox: Yes/No | Comments Box: Allow text
+24. Continuous Loop Webbing Sling Quantity Fit For Use | Quantity: numeric | Comments Box: Allow text
+25. 1m Ratchet Strap Quantity Fit For Use | Quantity: numeric | Comments Box: Allow text
+26. 2m Ratchet Strap Quantity Fit For Use | Quantity: numeric | Comments Box: Allow text
+27. 4m Ratchet Strap Quantity Fit For Use | Quantity: numeric | Comments Box: Allow text
+
+DTV — items to add after BB
+28. Cowstail | Condition: Fit for Use, Not Fit for Use, Not Witnessed | Manufacturer date: Yes/No | Serial number: Yes/No
+29. 15m Rope | Condition: Fit for Use, Not Fit for Use, Not Witnessed | Manufacturer date: Yes/No | Serial number: Yes/No
+30. 10m Rope | Condition: Fit for Use, Not Fit for Use, Not Witnessed | Manufacturer date: Yes/No | Serial number: Yes/No
+31. 5m Rope | Condition: Fit for Use, Not Fit for Use, Not Witnessed | Manufacturer date: Yes/No | Serial number: Yes/No
+32. Chimney Strop/Adjustable Anchor Strap | Condition: Fit for Use, Not Fit for Use, Not Witnessed | Manufacturer date: Yes/No | Serial number: Yes/No
+33. 10m Ratchet Strap | Condition: Fit for Use, Not Fit for Use, Not Witnessed | Comments Box: Allow text
+34. Soft Sling Quanity Fit For Use | Quantity: numeric | Comments Box: Allow text
+35. Rope Grab | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+36. Ladder Mate | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+37. Microlite | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+38. Cones Fit For Use (2 if DTV / 12 if PTTP) | Quantity: numeric
+39. Crawl Board Quantity Fit For Use  | Quantity: numeric
+40. 20mm Eyebolt Fit For Use | Quantity: numeric
+41. Triple Ladder | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+42. What Type of Ladder? 10/12/14 Rung? | Options: 10 Rung, 12 Rung, 14 Rung
+43. Roof Ladder | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+
+SAT — items to add after DTV
+44. 50m Rope | Condition: Fit for Use, Not Fit for Use, Not Witnessed | Manufacturer date: Yes/No | Serial number: Yes/No
+45. Safety Ascender/Descender Device (Belay Device) | Condition: Fit for Use, Not Fit for Use, Not Witnessed | Serial number: Yes/No
+46. Rocker | Condition: Fit for Use, Not Fit for Use, Not Witnessed | Serial number: Yes/No
+47. Wire Rope Slings Quantity Fit For Use | Quantity: numeric | Comments Box: Allow text
+48. Sat Harness | Condition: Fit for Use, Not Fit for Use, Not Witnessed | Comments Box: Allow text
+49. Sat Helmet | Condition: Fit for Use, Not Fit for Use, Not Witnessed | Comments Box: Allow text
+50. 30m x 7mm Static Acc. Cord | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+51. Delta Mailon | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+52. Rope Protector Quantity Fit For Use | Quantity: numeric
+53. Pulley Block Quantity Fit For Use | Quantity: numeric
+54. DAT Ladder (Two Sections) | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+55. DAT Ladder Clamp | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+56. DAT Spreader Bar x 2 | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+57. Safety Knife | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+58. SE Kit Bag | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+59. Additional 14 Rung Triple Ladder | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+60. Additional Rope Assisted Triple Ladder | Condition: Fit for Use, Not Fit for Use, Not Witnessed
+61. What Type of Ladder? 15/17/19 Rung? | Options: 15 Rung, 17 Rung, 19 Rung, None

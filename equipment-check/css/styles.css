@@ -153,6 +153,70 @@
   color: var(--brand-text);
 }
 
+.checklist-items {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.checklist-item {
+  min-width: 0;
+  padding: 16px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--brand-blue);
+  border-radius: 12px;
+}
+
+.checklist-item h3 {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+}
+
+.checklist-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  gap: 12px;
+}
+
+.checklist-fields label {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  color: var(--mute);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.checklist-fields label[hidden] {
+  display: none;
+}
+
+.checklist-fields input,
+.checklist-fields select,
+.checklist-fields textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+  color: var(--ink);
+  font: inherit;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.checklist-fields textarea {
+  resize: vertical;
+}
+
+.checklist-fields input:focus-visible,
+.checklist-fields select:focus-visible,
+.checklist-fields textarea:focus-visible {
+  outline: 3px solid var(--brand-text);
+  outline-offset: 2px;
+}
+
 .extras-heading {
   margin-top: 24px;
 }
