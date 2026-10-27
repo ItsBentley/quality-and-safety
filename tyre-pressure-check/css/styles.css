@@ -10,17 +10,33 @@
 }
 
 .app-header .eyebrow {
-  margin: 8px 0;
-  color: var(--brand-text);
+  width: fit-content;
+  margin: 10px auto 8px;
+  color: var(--ink);
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.12em;
 }
 
 .app-header h1 {
-  margin: 8px 0;
+  width: fit-content;
+  margin: 8px auto;
+  color: transparent;
+  background: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
   font-size: clamp(1.8rem, 6vw, 2.5rem);
   line-height: 1.1;
+}
+
+.app-header h1::after {
+  content: "";
+  display: block;
+  width: 52px;
+  height: 4px;
+  margin: 10px auto 0;
+  background: var(--brand-gradient);
+  border-radius: 999px;
 }
 
 .app-header .intro {
@@ -62,7 +78,24 @@
   padding: 16px;
   background: var(--bg);
   border: 1px solid var(--line);
+  border-left: 3px solid var(--brand-purple);
   border-radius: 14px;
+}
+
+.wheel-card:nth-child(4n + 1) {
+  border-left-color: var(--brand-orange);
+}
+
+.wheel-card:nth-child(4n + 2) {
+  border-left-color: var(--brand-red);
+}
+
+.wheel-card:nth-child(4n + 3) {
+  border-left-color: var(--brand-purple);
+}
+
+.wheel-card:nth-child(4n) {
+  border-left-color: var(--brand-blue);
 }
 
 .wheel-card h3 {
